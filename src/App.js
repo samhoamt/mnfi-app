@@ -95,6 +95,18 @@ const App = () => {
 
   const reachMaxMintLimit = (totalMinted?.toString() || 0) === (maxMintLimit?.toString() || 0);
 
+  if(!window.ethereum){
+    return (
+      <Container maxWidth="sm">
+        <Typography variant="h2">Mintable NFT</Typography>
+        <Alert severity="error">
+          <AlertTitle>MetaMask not found</AlertTitle>
+          Please install <strong>MetaMask</strong> to use this app.
+        </Alert>
+      </Container>
+    )
+  }
+
   return (
     <>
       <CssBaseline />
